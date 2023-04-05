@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\LoginController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +16,12 @@ use App\Http\Controllers\TestController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/losil', function () {
     return view('intro');
 });
 
 Route::get('/test', [TestController::class, 'callFromUrl']);
+
+Route::get('/', [LoginController::class, 'redirectUser']);
+
+
